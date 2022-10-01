@@ -14,25 +14,55 @@ namespace LibraryHelp
 {
     class Methods
     {
-        public static void FillArray(int[] num1, int minValue = 0, int MaxValue = 100) // <minValue = 0, int MaxValue = 100> - так мы указываем значения <0> и <100> по =>
-        // => умолчанию. Так, если при вызове метода <FillArray> не указываать <minValue>, <MaxValue>, то ошибки не будет (подставятся значения по умолчанию). 
+        public static void FillArray(int[] numbers, int minValue = 0, int maxValue = 100) // метод для заполнения массива целыми числами. 
+        // <minValue = 0, int maxValue = 100> - так мы указываем значения по умолчанию от <0> до <100>. =>
+        // => Если при вызове метода <FillArray> не указываать <minValue>, <maxValue>, то ошибки не будет (так как подставятся значения по умолчанию). 
         {
-            MaxValue++;
+            maxValue++;
             Random random = new Random();
-            for (int i = 0; i < num1.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                num1[i] = random.Next(minValue, MaxValue);
+                numbers[i] = random.Next(minValue, maxValue);
             }
         }
 
-        public static void PrintArray(int[] num2)
+        //----------------------------------------------------------------------------------------------------
+
+        public static void FillArrayDouble(double[] numbers, int minValue = 0, int maxValue = 100) // метод для заполнения массива вещественными (дробными) числами c округлением до сотых.
+        {
+            maxValue++;
+            Random random = new Random();
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = Math.Round((random.Next(minValue, maxValue) * random.NextDouble()), 2);
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------------
+
+        public static void PrintArray(int[] numbers) // метод для печати массива, который заполнен целыми числами. 
         {
             Console.WriteLine("Вывод массива: ");
-            for (int i = 0; i < num2.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                Console.Write(num2[i] + "  ");
+                Console.Write(numbers[i] + "  ");
             }
             Console.WriteLine();
         }
+
+        //----------------------------------------------------------------------------------------------------
+
+        public static void PrintArrayDouble(double[] numbers) // метод для печати массива, который заполнен вещественными (дробными) числами.
+        {
+            Console.WriteLine("Вывод массива: ");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.Write(numbers[i] + "  ");
+            }
+            Console.WriteLine();
+        }
+
+        //----------------------------------------------------------------------------------------------------
+
     }
 }
