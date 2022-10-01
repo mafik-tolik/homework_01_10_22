@@ -14,9 +14,25 @@ namespace LibraryHelp
 {
     class Methods
     {
-        public static void Help()
+        public static void FillArray(int[] num1, int minValue = 0, int MaxValue = 100) // <minValue = 0, int MaxValue = 100> - так мы указываем значения <0> и <100> по =>
+        // => умолчанию. Так, если при вызове метода <FillArray> не указываать <minValue>, <MaxValue>, то ошибки не будет (подставятся значения по умолчанию). 
         {
-            Console.WriteLine("Library");
+            MaxValue++;
+            Random random = new Random();
+            for (int i = 0; i < num1.Length; i++)
+            {
+                num1[i] = random.Next(minValue, MaxValue);
+            }
+        }
+
+        public static void PrintArray(int[] num2)
+        {
+            Console.WriteLine("Вывод массива: ");
+            for (int i = 0; i < num2.Length; i++)
+            {
+                Console.Write(num2[i] + "  ");
+            }
+            Console.WriteLine();
         }
     }
 }
