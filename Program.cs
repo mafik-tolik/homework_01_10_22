@@ -28,7 +28,7 @@ void Ex34()
         }
         return quantity;
     }
-    
+
     Console.WriteLine("");
 }
 
@@ -47,9 +47,9 @@ void Ex36()
     LibraryHelp.Methods.FillArray(numbers, -99, 99);
     LibraryHelp.Methods.PrintArray(numbers);
 
-    Console.WriteLine("Сумма элементов с нечётными индексами = " + GetSumOddNum(numbers));
+    Console.WriteLine("Сумма элементов с нечётными индексами = " + GetSumOddIndex(numbers));
 
-    int GetSumOddNum(int[] num)
+    int GetSumOddIndex(int[] num)
     {
         int sum = 0;
         for (int i = 0; i < num.Length; i++)
@@ -61,7 +61,7 @@ void Ex36()
         }
         return sum;
     }
-    
+
     Console.WriteLine("");
 }
 
@@ -77,7 +77,7 @@ void Ex38()
     int size = 10;
     double[] numbers = new double[size];
 
-    LibraryHelp.Methods.FillArrayDouble(numbers, -100, 100);
+    LibraryHelp.Methods.FillArrayDouble(numbers, -100, 100, 2);
     LibraryHelp.Methods.PrintArrayDouble(numbers);
 
     Console.WriteLine("Максимальный элемент массива = " + FindMaxNum(numbers));
@@ -87,29 +87,29 @@ void Ex38()
 
     double FindMaxNum(double[] numbers)
     {
-        double max_number = numbers[0];
+        double maxNumber = numbers[0];
 
         for (int i = 1; i < numbers.Length; i++)
         {
-            if (numbers[i] > max_number)
+            if (numbers[i] > maxNumber)
             {
-                max_number = numbers[i];
+                maxNumber = numbers[i];
             }
         }
-        return max_number;
+        return maxNumber;
     }
 
     double FindMinNum(double[] numbers)
     {
-        double min_number = numbers[0];
+        double minNumber = numbers[0];
 
         for (int i = 1; i < numbers.Length; i++)
         {
-            if (numbers[i] < min_number)
+            if (numbers[i] < minNumber)
             {
-                min_number = numbers[i];
+                minNumber = numbers[i];
             }
         }
-        return min_number;
+        return minNumber;
     }
 }
