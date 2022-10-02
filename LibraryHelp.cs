@@ -14,8 +14,8 @@ namespace LibraryHelp
 {
     class Methods
     {
-        public static void FillArray(int[] numbers, int minValue = 0, int maxValue = 100) // метод для заполнения массива целыми числами. 
-        // <minValue = 0, int maxValue = 100> - так мы указываем значения по умолчанию от <0> до <100>. =>
+        public static void FillArray(int[] numbers, int minValue = 0, int maxValue = 100) // метод для заполнения массива целыми числами. =>
+        // => <minValue = 0, int maxValue = 100> - так мы указываем значения по умолчанию от <0> до <100>. =>
         // => Если при вызове метода <FillArray> не указываать <minValue>, <maxValue>, то ошибки не будет (так как подставятся значения по умолчанию). 
         {
             maxValue++;
@@ -28,13 +28,14 @@ namespace LibraryHelp
 
         //----------------------------------------------------------------------------------------------------
 
-        public static void FillArrayDouble(double[] numbers, int minValue = 0, int maxValue = 100) // метод для заполнения массива вещественными (дробными) числами c округлением до сотых.
+        public static void FillArrayDouble(double[] numbers, int minValue = 0, int maxValue = 100, int roundNum = 2) 
+        // метод для заполнения массива вещественными (дробными) числами. <roundNum> - разряд, до которого округляем ("1" - до десятых, "2" - до сотых и т.д.). 
         {
             maxValue++;
             Random random = new Random();
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = Math.Round((random.Next(minValue, maxValue) * random.NextDouble()), 2);
+                numbers[i] = Math.Round((random.Next(minValue, maxValue) * random.NextDouble()), roundNum);
             }
         }
 
